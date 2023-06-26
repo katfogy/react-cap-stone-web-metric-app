@@ -1,20 +1,21 @@
 import React from 'react';
+import { BsSearch } from 'react-icons/bs';
 
 const ListCryptos = () => (
   <>
-    <div className="container my5">
+    <form className="container my5">
       <div className="search-container">
-        <input type="text" placeholder="Enter Currency Name" className="search" />
+        <input type="text" value="" placeholder="Enter Currency Name" className="search" />
       </div>
-    </div>
+      <BsSearch className="search-icon" />
+    </form>
     <div className="container grid my5">
-      <div className="card d-flex-space-be">
+      <button type="button" className="card d-flex-space-be">
         <h2>XAUT</h2>
-        <div className="stat d-flex-space-be py5">
+        <div className="stat">
           <div className="up">12</div>
-          <div className="down">4</div>
         </div>
-      </div>
+      </button>
     </div>
   </>
 );
