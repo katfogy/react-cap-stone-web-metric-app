@@ -1,6 +1,6 @@
 :root {
-  --red: brown;
-  --light-red: rgb(209, 22, 22);
+  --red: rgb(91, 5, 92);
+  --light-red: rgb(202, 16, 159);
   --white: white;
   --active: yellow;
 }
@@ -51,7 +51,7 @@ nav {
 .card {
   max-width: 150px;
   padding: 10px;
-  margin-block: 10px;
+  margin-block: 5px;
   flex-direction: column;
   gap: 20px;
   background-color: var(--red);
