@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { BsSearch } from 'react-icons/bs';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import { useSelector, useDispatch } from 'react-redux';
@@ -17,6 +18,11 @@ const ListCryptos = () => {
   const [search, setSearch] = useState('');
   const handleSubmit = (e) => {
     e.preventDefault();
+  };
+
+  const navigate = useNavigate();
+  const detailPage = (coins) => {
+    navigate(`/details/${coins.name}`, { state: { coins } });
   };
 
   return (
@@ -38,7 +44,7 @@ const ListCryptos = () => {
           }).map((coin) => {
             const { changePercent24Hr } = coin;
             return (
-              <button type="button" key={coin.id} className="card d-flex-space-be">
+              <button type="button" key={coin.id} className="card d-flex-space-be" onClick={() => detailPage(coin)}>
                 <h3>{coin.symbol}</h3>
                 <div className="stat">
                   <div className="up">
