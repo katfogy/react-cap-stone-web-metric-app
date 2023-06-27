@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import { useSelector, useDispatch } from 'react-redux';
@@ -6,6 +6,8 @@ import { fetchCrypto } from '../redux/features/Cryptocurrency/CryptoSlice';
 
 const ListCryptos = () => {
   const dispatch = useDispatch();
+  const inputRef = useRef(null);
+
   const crytoLists = useSelector((store) => store.crytoList);
   useEffect(() => {
     dispatch(fetchCrypto());
@@ -15,11 +17,14 @@ const ListCryptos = () => {
     e.preventDefault();
   };
 
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
   return (
     <>
       <form className="container my5" onSubmit={handleSubmit}>
         <div className="search-container">
-          <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Enter Currency Name" className="search" />
+          <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} ref={inputRef} placeholder="Enter Currency Name" className="search" />
         </div>
         <BsSearch className="search-icon" />
       </form>
