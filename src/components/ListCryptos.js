@@ -7,7 +7,9 @@ import { fetchCrypto } from '../redux/features/Cryptocurrency/CryptoSlice';
 const ListCryptos = () => {
   const dispatch = useDispatch();
   const inputRef = useRef(null);
-
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
   const crytoLists = useSelector((store) => store.crytoList);
   useEffect(() => {
     dispatch(fetchCrypto());
@@ -17,9 +19,6 @@ const ListCryptos = () => {
     e.preventDefault();
   };
 
-  useEffect(() => {
-    inputRef.current.focus();
-  }, []);
   return (
     <>
       <form className="container my5" onSubmit={handleSubmit}>
@@ -36,26 +35,29 @@ const ListCryptos = () => {
             return search.toLowerCase() === ''
               ? coin
               : symbol.toLowerCase().includes(search.toLowerCase());
-          }).map((coin) => (
-            <button type="button" key={coin.id} className="card d-flex-space-be">
-              <h3>{coin.name}</h3>
-              <div className="stat">
-                <div className="up">
-                  {coin.changePercent24Hr < 0 ? (
-                    <span>
-                      <FaChevronDown color="red" />
-                      {Math.abs(coin.changePercent24Hr).toFixed(2)}
-                    </span>
-                  ) : (
-                    <span>
-                      <FaChevronUp color="green" />
-                      {Math.abs(coin.changePercent24Hr).toFixed(2)}
-                    </span>
-                  )}
+          }).map((coin) => {
+            const { changePercent24Hr } = coin;
+            return (
+              <button type="button" key={coin.id} className="card d-flex-space-be">
+                <h3>{coin.symbol}</h3>
+                <div className="stat">
+                  <div className="up">
+                    {changePercent24Hr < 0 ? (
+                      <span>
+                        <FaChevronDown color="red" />
+                        {Math.abs(changePercent24Hr).toFixed(2)}
+                      </span>
+                    ) : (
+                      <span>
+                        <FaChevronUp color="green" />
+                        {Math.abs(changePercent24Hr).toFixed(2)}
+                      </span>
+                    )}
+                  </div>
                 </div>
-              </div>
-            </button>
-          )))}
+              </button>
+            );
+          }))}
       </div>
     </>
   );
