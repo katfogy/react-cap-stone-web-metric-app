@@ -109,3 +109,31 @@ form {
   right: 3rem;
   cursor: pointer;
 }
+
+.detail-title {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.details {
+  max-width: 400px;
+  margin: 10px auto;
+  border: 2px solid red;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.details > * {
+  margin-block: 10px;
+}
+
+.details-body > * {
+  margin-block: 10px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 10px;
+}
+
+.details-body > *:nth-child(even) {
+  background-color: var(--light-red);
+}
