@@ -18,7 +18,7 @@ const Details = () => {
         <BiArrowBack onClick={() => backHome()} />
         <h2 className="detail-title">
           {coins.name}
-          &nbps;
+          {' '}
           {coins.symbol}
         </h2>
         <div className="details-body">
@@ -30,14 +30,14 @@ const Details = () => {
           </p>
           <p className="price">
             Price(Btc):
-            &nbps;
+            {' '}
             <FaBitcoin />
-            &nbps;
+            {' '}
             {coins.priceUsd}
           </p>
           <p className="t24hr">
             24h %:
-            &nbps;
+            {' '}
             {Number(coins.maxSupply).toLocaleString(undefined, {
               maximumFractionDigits: 2,
             })}
