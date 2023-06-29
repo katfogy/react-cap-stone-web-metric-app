@@ -1,7 +1,7 @@
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import renderer from 'react-test-renderer';
-import DetailsPage from '../components/pages/Details';
+import Details from '../components/pages/Details';
 import store from '../redux/store';
 import '@testing-library/jest-dom/extend-expect';
 
@@ -11,7 +11,7 @@ describe('Details page', () => {
       .create(
         <BrowserRouter>
           <Provider store={store}>
-            <DetailsPage />
+            <Details />
           </Provider>
           ,
         </BrowserRouter>,
