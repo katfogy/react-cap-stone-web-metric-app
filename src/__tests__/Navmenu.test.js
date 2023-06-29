@@ -1,6 +1,6 @@
 import { BrowserRouter } from 'react-router-dom';
 import renderer from 'react-test-renderer';
-import Navmenu from '../components/Navmenu';
+import Navmenu from '../components/NavMenu.js';
 
 it('renders correctly', () => {
   const tree = renderer
