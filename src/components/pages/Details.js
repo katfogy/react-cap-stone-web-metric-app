@@ -53,8 +53,10 @@ const Details = () => {
             </span>
           </p>
           <p className="volume24 d-flex-space-be">
-            Volume(24h): $
+            Volume(24h):
             <span>
+              $
+              {' '}
               {Number(coins.volumeUsd24Hr).toLocaleString(undefined, {
                 maximumFractionDigits: 2,
               })}
