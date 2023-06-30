@@ -115,13 +115,13 @@ form {
 }
 
 .detail-title {
-  text-align: center;
   text-transform: uppercase;
+  text-align: right;
 }
 
 .details {
   color: var(--white);
-  max-width: 400px;
+  max-width: 500px;
   margin: 10px auto;
   border: 2px solid red;
   padding: 10px;
@@ -147,3 +147,4 @@ form {
   font-size: 2rem;
   cursor: pointer;
 }
+
