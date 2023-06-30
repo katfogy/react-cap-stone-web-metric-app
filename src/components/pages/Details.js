@@ -12,6 +12,7 @@ const Details = () => {
   };
 
   const { coins } = location.state || { coins: {} };
+  const { priceUsd } = coins;
   return (
     <div className="container">
       <div className="details">
@@ -22,31 +23,42 @@ const Details = () => {
           {coins.symbol}
         </h2>
         <div className="details-body">
-          <p className="market-cap">
-            Market Cap: $
-            {Number(coins.marketCapUsd).toLocaleString(undefined, {
-              maximumFractionDigits: 2,
-            })}
+          <p className="market-cap d-flex-space-be">
+            Market Cap:
+            <span>
+              $
+              {Number(coins.marketCapUsd).toLocaleString(undefined, {
+                maximumFractionDigits: 2,
+              })}
+            </span>
           </p>
-          <p className="price">
-            Price(Btc):
+          <p className="price d-flex-space-be">
+            <span>
+              Price(Btc):
+              {' '}
+              <FaBitcoin />
+              {' '}
+            </span>
             {' '}
-            <FaBitcoin />
-            {' '}
-            {coins.priceUsd}
+            {Math.abs(priceUsd).toFixed(5)}
           </p>
-          <p className="t24hr">
+          <p className="t24hr d-flex-space-be">
             24h %:
             {' '}
-            {Number(coins.maxSupply).toLocaleString(undefined, {
-              maximumFractionDigits: 2,
-            })}
+            <span>
+              {' '}
+              {Number(coins.maxSupply).toLocaleString(undefined, {
+                maximumFractionDigits: 2,
+              })}
+            </span>
           </p>
-          <p className="volume24">
+          <p className="volume24 d-flex-space-be">
             Volume(24h): $
-            {Number(coins.volumeUsd24Hr).toLocaleString(undefined, {
-              maximumFractionDigits: 2,
-            })}
+            <span>
+              {Number(coins.volumeUsd24Hr).toLocaleString(undefined, {
+                maximumFractionDigits: 2,
+              })}
+            </span>
           </p>
         </div>
       </div>
