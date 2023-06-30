@@ -1,6 +1,7 @@
 :root {
-  --red: rgb(91, 5, 92);
-  --light-red: rgb(202, 16, 159);
+  --red: #9a325b;
+  --light-red: #dd4782;
+  --light-bg: #d32e70;
   --white: white;
   --active: yellow;
 }
@@ -9,6 +10,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  background-color: var(--light-bg);
 }
 
 .container {
@@ -49,10 +54,10 @@ nav {
 }
 
 .card {
-  max-width: 150px;
-  padding: 10px;
-  margin-block: 5px;
+  padding: 50px;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 20px;
   background-color: var(--red);
   color: var(--white);
@@ -74,8 +79,7 @@ nav {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   justify-content: flex-start;
-  max-width: 1200px;
-  padding-inline: 10px;
+  padding: 10px;
 }
 
 .my5 {
@@ -116,6 +120,7 @@ form {
 }
 
 .details {
+  color: var(--white);
   max-width: 400px;
   margin: 10px auto;
   border: 2px solid red;
@@ -136,4 +141,9 @@ form {
 
 .details-body > *:nth-child(even) {
   background-color: var(--light-red);
+}
+
+.back-arrow {
+  font-size: 2rem;
+  cursor: pointer;
 }

@@ -15,7 +15,7 @@ const Details = () => {
   return (
     <div className="container">
       <div className="details">
-        <BiArrowBack onClick={() => backHome()} />
+        <BiArrowBack className="back-arrow" onClick={() => backHome()} />
         <h2 className="detail-title">
           {coins.name}
           {' '}

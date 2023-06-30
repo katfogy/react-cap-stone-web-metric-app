@@ -44,7 +44,7 @@ const ListCryptos = () => {
           }).map((coin) => {
             const { changePercent24Hr } = coin;
             return (
-              <button type="button" key={coin.id} className="card d-flex-space-be" onClick={() => detailPage(coin)}>
+              <button type="button" key={coin.id} className="card" onClick={() => detailPage(coin)}>
                 <h3>{coin.symbol}</h3>
                 <div className="stat">
                   <div className="up">
